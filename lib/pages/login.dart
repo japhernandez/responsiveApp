@@ -84,8 +84,6 @@ class _LoginPageState extends State<LoginPage> {
   Widget _singleChildScrollView(size, responsive) {
     return SingleChildScrollView(
       child: Container(
-        width: size.width,
-        height: size.height,
         child: SafeArea(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
