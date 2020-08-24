@@ -31,6 +31,12 @@ class ResponsiveDesignExtra {
     return (height * tempPercent) / 100;
   }
 
+  // Texto
+  double textMultiplier(double size) {
+    double tempPercent = size / 7.0;
+    return inchPercent(tempPercent);
+  }
+
   // Imagen
   double imageMultiplier(double pixel) {
     double tempPercent = (pixel * 100.0) / 375.0;

@@ -134,7 +134,7 @@ class _LoginPageState extends State<LoginPage> {
           'Hello again. \n Welcome back',
           textAlign: TextAlign.center,
           style: TextStyle(
-            fontSize: responsive.inchPercent(2.0),
+            fontSize: responsive.textMultiplier(14.0),
           ),
         ),
       ],
@@ -148,7 +148,7 @@ class _LoginPageState extends State<LoginPage> {
         children: <Widget>[
           InputText(
             label: "EMAIL ADDRESS",
-            fontSize: responsive.inchPercent(1.8),
+            fontSize: responsive.textMultiplier(12.6),
             textInputType: TextInputType.emailAddress,
             validator: (String text) {
               if (text.contains('@')) {
@@ -161,7 +161,7 @@ class _LoginPageState extends State<LoginPage> {
           SizedBox(height: responsive.heightMultiplier(10.0)),
           InputText(
               isSecure: true,
-              fontSize: responsive.inchPercent(1.8),
+              fontSize: responsive.textMultiplier(12.6),
               label: "PASSWORD",
               validator: (String text) {
                 if (text.isNotEmpty && text.length > 5) {
@@ -188,7 +188,7 @@ class _LoginPageState extends State<LoginPage> {
         child: Text(
           "Sign in",
           style: TextStyle(
-              fontSize: responsive.inchPercent(2.5)
+              fontSize: responsive.textMultiplier(17.5)
           ),
         ),
         onPressed: () => _submit(),
@@ -203,7 +203,7 @@ class _LoginPageState extends State<LoginPage> {
         Text(
           "New to Friendly Desi?",
           style: TextStyle(
-            fontSize: responsive.inchPercent(2.0),
+            fontSize: responsive.textMultiplier(14.0),
             color: Colors.black54,
           ),
         ),
@@ -211,7 +211,7 @@ class _LoginPageState extends State<LoginPage> {
           child: Text(
             "Sign Up",
             style: TextStyle(
-              fontSize: responsive.inchPercent(2.0),
+              fontSize: responsive.textMultiplier(14.0),
               color: Colors.pinkAccent,
             ),
           ),
