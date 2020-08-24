@@ -1,8 +1,8 @@
 import 'package:responsiveApp/api/auth.dart';
-import 'package:responsiveApp/utils/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
+import 'package:responsiveApp/utils/responsiveExtra.dart';
 import 'package:responsiveApp/widgets/circle.dart';
 import 'package:responsiveApp/widgets/input.dart';
 
@@ -29,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final responsive = ResponsiveDesign(context);
+    final responsive = ResponsiveDesignExtra(context);
 
     return Container(
       child: Scaffold(
@@ -92,14 +92,17 @@ class _LoginPageState extends State<LoginPage> {
               Column(
                 children: <Widget>[
                   ConstrainedBox(
-                    constraints: BoxConstraints(maxWidth: 350, minWidth: 350),
+                    constraints: BoxConstraints(
+                        maxWidth: responsive.widthMultiplier(350.0),
+                        minWidth: responsive.widthMultiplier(350.0)
+                    ),
                     child: _form(responsive),
                   ),
-                  SizedBox(height: responsive.heightPercent(4.0)),
+                  SizedBox(height: responsive.heightMultiplier(10.0)),
                   _bottom(responsive),
-                  SizedBox(height: responsive.heightPercent(2.0)),
+                  SizedBox(height: responsive.heightMultiplier(10.0)),
                   _link(responsive),
-                  SizedBox(height: responsive.heightPercent(5.0)),
+                  SizedBox(height: responsive.heightMultiplier(10.0)),
                 ],
               )
             ],
@@ -113,8 +116,8 @@ class _LoginPageState extends State<LoginPage> {
     return Column(
       children: <Widget>[
         Container(
-          width: responsive.widthPercent(20.0),
-          height: responsive.widthPercent(20.0),
+          width: responsive.widthMultiplier(100.0),
+          height: responsive.widthMultiplier(100.0),
           margin: EdgeInsets.only(top: size.width * 0.3),
           decoration: BoxDecoration(
               color: Colors.white,
@@ -126,13 +129,12 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ]),
         ),
-        SizedBox(height: responsive.heightPercent(4.0)),
+        SizedBox(height: responsive.heightMultiplier(10.0)),
         Text(
           'Hello again. \n Welcome back',
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: responsive.inchPercent(2.0),
-            fontWeight: FontWeight.w300,
           ),
         ),
       ],
@@ -156,7 +158,7 @@ class _LoginPageState extends State<LoginPage> {
               return 'Invalid Email';
             },
           ),
-          SizedBox(height: responsive.heightPercent(3.0)),
+          SizedBox(height: responsive.heightMultiplier(10.0)),
           InputText(
               isSecure: true,
               fontSize: responsive.inchPercent(1.8),
@@ -175,14 +177,19 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _bottom(responsive) {
     return ConstrainedBox(
-      constraints: BoxConstraints(maxWidth: 350, minWidth: 350),
+      constraints: BoxConstraints(
+          maxWidth: responsive.widthMultiplier(350.0),
+          minWidth: responsive.widthMultiplier(350.0)
+      ),
       child: CupertinoButton(
         padding: EdgeInsets.symmetric(vertical: responsive.inchPercent(2.0)),
         color: Colors.pinkAccent,
         borderRadius: BorderRadius.circular(4),
         child: Text(
           "Sign in",
-          style: TextStyle(fontSize: responsive.inchPercent(2.5)),
+          style: TextStyle(
+              fontSize: responsive.inchPercent(2.5)
+          ),
         ),
         onPressed: () => _submit(),
       ),
@@ -196,7 +203,7 @@ class _LoginPageState extends State<LoginPage> {
         Text(
           "New to Friendly Desi?",
           style: TextStyle(
-            fontSize: responsive.inchPercent(1.8),
+            fontSize: responsive.inchPercent(2.0),
             color: Colors.black54,
           ),
         ),
@@ -204,7 +211,7 @@ class _LoginPageState extends State<LoginPage> {
           child: Text(
             "Sign Up",
             style: TextStyle(
-              fontSize: responsive.inchPercent(1.8),
+              fontSize: responsive.inchPercent(2.0),
               color: Colors.pinkAccent,
             ),
           ),
